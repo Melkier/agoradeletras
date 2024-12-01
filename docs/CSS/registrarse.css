@@ -1,0 +1,85 @@
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: auto;
+
+    /* Fondo con imagen */
+  
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    color: #ffffff; 
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff; 
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgba(0, 0, 0, 0.7); 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+label {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    font-size: 1rem;
+    color: white;
+    background-color: #5cb85c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff; 
+}
+
+/* Contenedor para centrar el botón de regresar */
+.back-button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back-button-container button {
+    padding: 10px;
+    font-size: 1rem;
+    color: white;
+    background-color: #4cae4c ; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.back-button-container button:hover {
+    background-color: #0056b3; /* Color al pasar el mouse */
+}

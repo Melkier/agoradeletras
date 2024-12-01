@@ -1,0 +1,164 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Checkout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #1d2d5c;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        button {
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .checkbox-group {
+            margin-top: -15px;
+            margin-bottom: 20px;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+        }
+
+        .img-preview {
+            display: block;
+            max-width: 100%;
+            margin-top: 20px;
+        }
+
+        .iframe-video {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulario de Checkout</h1>
+    <form>
+        
+        <div class="form-section">
+            <label for="txtnombre">Nombres</label>
+            <input type="text" id="txtnombre" name="txtnombre" placeholder="Ingresa tu nombre" required>
+
+            <label for="txtapellidos">Apellidos</label>
+            <input type="text" id="txtapellidos" name="txtapellidos" placeholder="Ingresa tus apellidos" required>
+        </div>
+
+        <div class="form-section">
+            <label>Tipo de envio</label>
+            <div class="radio-group">
+                <label><input type="radio" name="sex" value="Opcion 1" checked> Recojo en tienda</label>
+                <label><input type="radio" name="sex" value="Opcion 2"> Envio a domicilio </label>
+            </div>
+        </div>
+        
+
+        <div class="form-section">
+            <label for="pass">Envio a domilicio</label>
+            <input type="password" id="pass" name="pass" size="20" placeholder="Ingresa tu direccion" required>
+        </div>
+
+   
+        <div class="form-section">
+            <label for="fecha">Seleccione fecha de envio</label>
+            <input type="date" id="fecha" required>
+        </div>
+
+
+
+        <div class="form-section">
+            <label for="text_autos">Seleccione la editorial</label>
+            <select name="text_autos" id="text_autos">
+                <option value="cod_Simon & Schuster">Simon & Schuster</option>
+                <option value="cod_Penguin Random House">Penguin Random House</option>
+                <option value="cod_HarperCollins" selected>HarperCollins</option>
+                <option value="cod_Hachette Book Group">Hachette Book Group</option>
+            </select>
+        </div>
+
+ 
+        <div class="form-section">
+            <label for="comentarios">Comentarios adicionales</label>
+            <textarea rows="4" cols="50" name="comentarios" id="comentarios" placeholder="Deja tus comentarios"></textarea>
+        </div>
+
+
+        <div class="form-section">
+            <label for="archivo">Seleccione foto de documentacion</label>
+            <input type="file" name="Portada" id="archivo" size="30">
+        </div>
+
+  
+        <div class="form-section">
+            <img src="imagenes/Evolucion-librerias-1.jpg" alt="imagen libreria" class="img-preview"/>
+        </div>
+
+        <div class="form-section">
+            <audio controls>
+                <audio controls >
+                    <source src="audio/Música de Fondo para Librería.mp3" type="audio/ogg">
+                    <source src="audio/Música de Fondo para Librería.mp3" type="audio/mpeg">
+                    Your browser does not support the <code>audio</code> tag.
+                </audio>
+            </audio>
+        </div>
+
+        <div class="form-section">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/A6urnRc3DFU?si=1YJ2uJOZHXJIYrhX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        
+        </div>
+
+        <!-- Botón de Enviar -->
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
