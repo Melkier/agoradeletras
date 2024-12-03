@@ -1,0 +1,156 @@
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1050;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro con alto contraste */
+  backdrop-filter: blur(15px); /* Desenfoque potente para un efecto visual impresionante */
+  overflow: hidden;
+  transition: opacity 0.3s ease-in-out;
+  animation: fadeInBackdrop 0.4s ease-in-out; /* Animación de entrada para el fondo */
+}
+
+/* Contenido de la Modal */
+.modal-content {
+  position: relative;
+  margin: 5% auto;
+  background: #fff;
+  padding: 35px;
+  border-radius: 15px;
+  width: 60%;
+  max-width: 1000px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Sombra profunda y difusa */
+  animation: slideIn 0.7s ease-out;
+  transition: transform 0.5s ease-out; /* Se puede dejar esta propiedad si deseas un efecto de transición suave, pero sin el movimiento */
+}
+
+/* Eliminamos el movimiento en el hover */
+.modal-content:hover {
+  transform: none; /* Elimina la transformación al pasar el mouse */
+}
+
+/* Encabezado de la Modal */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #f1f1f1;
+  padding-bottom: 15px;
+  position: relative;
+}
+
+.modal-header h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2d3436;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  flex-grow: 1; /* Centra el título */
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Efecto sutil en el texto */
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: #bdc3c7;
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+
+.close-btn:hover {
+  color: #e74c3c; /* Color vibrante para el botón de cerrar */
+  transform: scale(1.2); /* Efecto de escala al pasar el ratón */
+}
+
+/* Cuerpo de la Modal */
+.modal-body {
+  margin-top: 20px;
+  color: #7f8c8d;
+  padding-bottom: 10px;
+}
+
+.modal-body-content {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.modal-image {
+  width: 280px;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1); /* Sombra profunda con efecto suave */
+  transform: scale(0.95);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.modal-image:hover {
+  transform: scale(1.05); /* Escala suave en hover */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); /* Sombra más intensa en hover */
+}
+
+.modal-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #636e72;
+  margin: 15px 0;
+  text-align: justify;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Estilo para el botón "Ir al Carrito" */
+#go-to-cart {
+    padding: 10px 20px;
+    background-color: #00796b; /* Color similar al título */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1.1rem;
+    margin-top: 20px; /* Espacio entre el contenido y el botón */
+    display: block;
+    width: 100%;
+}
+
+#go-to-cart:hover {
+    background-color: #004d40; /* Color más oscuro al pasar el mouse */
+}
+
+/* Animaciones */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInBackdrop {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+

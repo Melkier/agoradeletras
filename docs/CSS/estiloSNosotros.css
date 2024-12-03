@@ -1,0 +1,221 @@
+/* Estilo básico y tipografía */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #e9ecef;
+    color: #343a40;
+    margin: 0;
+    padding: 0;
+}
+
+#nosotros {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+#nosotros:hover {
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Estilo de encabezado y títulos */
+.div_titulo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.titulo {
+    font-size: 28px;
+    color: #007bff;
+    margin: 20px 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    position: relative;
+}
+
+.titulo:after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #007bff;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+/* Estilo de los párrafos */
+.parrafo {
+    text-align: justify;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #495057;
+    margin-bottom: 25px;
+}
+
+/* Estilos de Misión y Visión */
+.seccion-mision, .seccion-vision {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #f0f2f5, #ffffff);
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.seccion-mision:hover, .seccion-vision:hover {
+    transform: scale(1.02);
+}
+
+.seccion-mision .parrafo, .seccion-vision .parrafo {
+    width: 60%;
+}
+
+.imagen-mision, .imagen-vision {
+    width: 40%;
+    max-width: 180px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.imagen-mision:hover, .imagen-vision:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.seccion-mision {
+    flex-direction: row-reverse; /* Imagen a la derecha en misión */
+}
+
+.seccion-vision {
+    flex-direction: row; /* Imagen a la izquierda en visión */
+}
+
+/* Estilos para la sección de valores */
+.seccion-valores {
+    margin-top: 30px;
+    padding: 25px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.seccion-valores:before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 120px;
+    height: 120px;
+    background: rgba(0, 123, 255, 0.1);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.lista-valores {
+    list-style-type: none;
+    padding: 0;
+    z-index: 1;
+    position: relative;
+}
+
+.lista-valores li {
+    margin-bottom: 15px;
+    font-size: 17px;
+    color: #343a40;
+    display: flex;
+    align-items: flex-start;
+}
+
+.lista-valores li strong {
+    color: #007bff;
+    font-weight: 600;
+    margin-right: 10px;
+    min-width: 160px;
+    text-align: right;
+    padding-right: 15px;
+}
+
+.lista-valores li:before {
+    content: "•";
+    color: #007bff;
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+/* Efecto hover para interactividad */
+.imagen-mision:hover, .imagen-vision:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.titulo:hover {
+    color: #0056b3;
+    transition: color 0.3s ease;
+}
+
+/* Estilos del botón de regreso */
+.boton-regreso {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btn-regreso {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-regreso:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.btn-regreso:active {
+    transform: translateY(1px);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .seccion-mision, .seccion-vision {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .seccion-mision .parrafo, .seccion-vision .parrafo {
+        width: 100%;
+    }
+
+    .imagen-mision, .imagen-vision {
+        width: 100%;
+        max-width: 250px;
+        margin: 20px 0;
+    }
+
+    .lista-valores li strong {
+        min-width: 100px;
+        text-align: left;
+    }
+}
