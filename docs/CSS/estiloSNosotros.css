@@ -1,0 +1,331 @@
+/* Estilo básico y tipografía */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f8f9fa; /* Fondo claro para el cuerpo */
+    color: #333; /* Texto oscuro para contraste */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evita desplazamientos horizontales innecesarios */
+}
+
+/* Fondo principal */
+.fondo-principal {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+}
+
+.fondo-agora {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(70%);
+}
+
+/* Encabezado */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 30px;
+    background-color: #ffffff; /* Fondo blanco para el encabezado */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    max-width: 150px;
+    height: auto;
+}
+
+.search-bar {
+    flex: 1;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: 2px solid #28a745; /* Verde en el borde */
+    border-radius: 20px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.search-bar:focus {
+    border-color: #218838; /* Verde más oscuro para foco */
+}
+
+.searchInput {
+    padding: 12px 18px;
+    background-color: #28a745; /* Verde */
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.searchInput:hover {
+    background-color: #218838; /* Verde más oscuro en hover */
+}
+
+/* Enlaces del encabezado */
+.header-links a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.header-links a:hover {
+    color: #28a745; /* Verde en hover */
+}
+
+/* Barra de navegación */
+.navbar {
+    background-color: #ffffff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-boton {
+    background-color: #28a745; /* Verde */
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav-boton:hover {
+    background-color: #218838; /* Verde más oscuro en hover */
+}
+
+/* Menú desplegable */
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    transition: transform 0.3s ease;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #28a745; /* Verde */
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu a:hover {
+    background-color: #28a745; /* Verde */
+    color: #fff; /* Invertir los colores en el hover */
+}
+
+/* Sección de "Nosotros" */
+#nosotros {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s ease;
+}
+
+#nosotros:hover {
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Estilo de los títulos */
+.div_titulo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.titulo {
+    font-size: 28px;
+    color: #28a745; /* Verde para los títulos */
+    margin: 20px 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    position: relative;
+}
+
+.titulo:after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #28a745;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+/* Párrafos */
+.parrafo {
+    text-align: justify;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #495057;
+    margin-bottom: 25px;
+}
+
+/* Sección Misión y Visión */
+.seccion-mision, .seccion-vision {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #f0f2f5, #ffffff);
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.seccion-mision:hover, .seccion-vision:hover {
+    transform: scale(1.02);
+}
+
+.seccion-mision .parrafo, .seccion-vision .parrafo {
+    width: 60%;
+}
+
+.imagen-mision, .imagen-vision {
+    width: 40%;
+    max-width: 180px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.imagen-mision:hover, .imagen-vision:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Valores */
+.seccion-valores {
+    margin-top: 30px;
+    padding: 25px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.seccion-valores:before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 120px;
+    height: 120px;
+    background: rgba(40, 167, 69, 0.1); /* Verde suave */
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.lista-valores {
+    list-style-type: none;
+    padding: 0;
+    z-index: 1;
+    position: relative;
+}
+
+.lista-valores li {
+    margin-bottom: 15px;
+    font-size: 17px;
+    color: #343a40;
+    display: flex;
+    align-items: flex-start;
+}
+
+.lista-valores li strong {
+    color: #28a745; /* Verde */
+    font-weight: 600;
+    margin-right: 10px;
+    min-width: 160px;
+    text-align: right;
+    padding-right: 15px;
+}
+
+.lista-valores li:before {
+    content: "•";
+    color: #28a745; /* Verde */
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+/* Estilos del botón de regreso */
+.boton-regreso {
+    text-align: left; /* Alinea el texto a la izquierda */
+    justify-content: flex-start; /* Alinea el botón a la izquierda */
+    margin-top: 30px;
+}
+
+.btn-regreso {
+    
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #28a745; /* Verde */
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-regreso:hover {
+    background-color: #218838; /* Verde más oscuro en hover */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 15px;
+    }
+
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .menu {
+        flex-direction: column;
+    }
+
+    .seccion-mision, .seccion-vision {
+        flex-direction: column;
+    }
+
+    .seccion-mision .parrafo, .seccion-vision .parrafo {
+        width: 100%;
+    }
+
+    .imagen-mision, .imagen-vision {
+        width: 100%;
+        max-width: 300px;
+        margin-top: 15px;
+    }
+    
+    .boton-regreso {
+        justify-content: flex-start; /* Alinea el botón a la izquierda también en dispositivos móviles */
+    }
+}

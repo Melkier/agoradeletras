@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="CSS/gridlayout.css" rel="stylesheet" type="text/css"/>
+        <title>Librería</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="CSS/estilo.css">
+        <link href="CSS/estilocontacto.css" rel="stylesheet" />
+        <script src="JS/confirmacion.js" type="text/javascript"></script>
+        <link href="CSS/ventana.css" rel="stylesheet" type="text/css"/>
+        <link href="CSS/estilo-fondoprincipalagora.css" rel="stylesheet" type="text/css"/>      
+        <link href="CSS/barraBusqueda.css" rel="stylesheet" type="text/css"/>
+        <link href="CSS/registrarse.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+          <!-- Contenido principal -->
+        <header>
+            <div class="fondo-principal">
+                <img src="imagenes/fondoprincipal.jpeg" alt="Agora" class="fondo-agora"/>
+            </div>
+            <div class="header-container">
+                <img src="imagenes/LogoAgora.png" alt="Agora de libros Logo" class="logo" />
+                <input type="text" placeholder="Buscar por título, autor o género" class="search-bar">
+                <button class="searchInput" type="submit" onclick="filterBooks()">🔍</button>
+                <div id="book-list"></div>
+                <div class="header-links">
+                    <a href="registrarse.html">Regístrate</a>
+                    <a href="carrito.html">Carrito</a>
+                </div>
+            </div>
+            <nav class="navbar">
+                <button class="nav-boton" onclick="toggleMenu()">Menú</button>
+                <div id="menu" class="menu oculto">
+                    
+               
+
+                <a href="#patito">El Patito Feo</a>
+                <a href="#harrypotter">Harry Potter</a>
+                <a href="#caperucita">Caperucita Roja</a>
+                <a href="#princesavaliente">Mi Princesa Valiente</a>
+                <a href="#donquijote">Don Quijote</a>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Sección: El Patito Feo -->
+        <main id="patito" class="content">
+            <div class="description">
+                <h2>Detalles del libro: El Patito Feo</h2>
+                <p><strong>Descripción:</strong> Este entrañable cuento narra la conmovedora historia de un pequeño patito que, rechazado por ser diferente, emprende un viaje lleno de desafíos y descubrimientos...</p>
+                <p><strong>Autor:</strong> Hans Christian Andersen</p>
+                <p><strong>Año:</strong> 1843</p>
+                <p><strong>Editorial:</strong> LibraryCall Kids</p>
+                <p><strong>Precio:</strong> S/15</p>
+                <a href="carrito.html" class="button">Añadir al carrito</a>
+            </div>
+            <div class="image">
+                <img src="imagenes/El patito feo.jpg" alt="El Patito Feo">
+            </div>
+        </main>
+
+        <!-- Sección: Harry Potter -->
+        <main id="harrypotter" class="content">
+            <div class="description">
+                <h2>Detalles del libro: Harry Potter</h2>
+                <p><strong>Descripción:</strong> Esta icónica saga narra las aventuras de Harry Potter, un joven mago que descubre su verdadera identidad y asiste a la escuela Hogwarts de Magia y Hechicería...</p>
+                <p><strong>Autor:</strong> J.K. Rowling</p>
+                <p><strong>Año:</strong> 1997</p>
+                <p><strong>Editorial:</strong> Bloomsbury Publishing</p>
+                <p><strong>Precio:</strong> S/20</p>
+                <a href="carrito.html" class="button">Añadir al carrito</a>
+            </div>
+            <div class="image">
+                <img src="img2/617970.jpg" alt="Harry Potter">
+            </div>
+        </main>
+
+        <main id="caperucita" class="content">
+            <div class="description">
+                <h2>Detalles del libro: Caperucita Roja</h2>
+                <p><strong>Descripción:</strong> Este clásico cuento popular narra la aventura de una niña llamada Caperucita Roja, quien desafía peligros en el bosque para llevar comida a su abuela y enfrenta al astuto lobo.</p>
+                <p><strong>Autor:</strong> Charles Perrault</p>
+                <p><strong>Año:</strong> 1697</p>
+                <p><strong>Editorial:</strong> Folktale Press</p>
+                <p><strong>Precio:</strong> S/18</p>
+                <a href="carrito.html" class="button">Añadir al carrito</a>
+            </div>
+            <div class="image">
+                <img src="img2/caperucita.jpeg" alt=""/>
+            </div>
+        </main>
+
+        <main id="princesavaliente" class="content">
+            <div class="description">
+                <h2>Detalles del libro: Mi Princesa Valiente</h2>
+                <p><strong>Descripción:</strong> Un libro inspirador que celebra la valentía, la bondad y la confianza en uno mismo. Ideal para motivar a niñas y niños a perseguir sus sueños y superar los desafíos.</p>
+                <p><strong>Autor:</strong> Tamara Krüger</p>
+                <p><strong>Año:</strong> 2020</p>
+                <p><strong>Editorial:</strong> Brave Hearts Publishing</p>
+                <p><strong>Precio:</strong> S/25</p>
+                <a href="carrito.html" class="button">Añadir al carrito</a>
+            </div>
+            <div class="image">
+                <img src="imagenes/Mi Princesa Valiente.jpg" alt=""/>
+            </div>
+        </main>
+
+        <!-- Sección: Don Quijote -->
+        <main id="donquijote" class="content">
+            <div class="description">
+                <h2>Detalles del libro: Don Quijote</h2>
+                <p><strong>Descripción:</strong> Este clásico de la literatura universal narra las aventuras y desventuras de Don Quijote de la Mancha, un caballero que busca revivir la era de la caballería con su fiel escudero Sancho Panza.</p>
+                <p><strong>Autor:</strong> Miguel de Cervantes</p>
+                <p><strong>Año:</strong> 1605</p>
+                <p><strong>Editorial:</strong> Editorial Clásicos Universales</p>
+                <p><strong>Precio:</strong> S/30</p>
+                <a href="carrito.html" class="button">Añadir al carrito</a>
+            </div>
+            <div class="image">
+                <img src="img_clasicos/ElQuijote.jpg" alt=""/>
+            </div>
+        </main>
+    </body>
+     <footer>
+        <div class="footer-top">
+            <div class="footer-service">
+                <div class="service-item">
+                    <i class="icon-delivery"></i>
+                    <span>Recojo en tienda</span>
+                    <p>Ubica tu tienda más cercana</p>
+                </div>
+                <div class="service-item">
+                    <i class="icon-secure"></i>
+                    <span>Atención al cliente</span>
+                    <p>Consulta con nuestro equipo de atención al cliente</p>
+                </div>
+                <div class="service-item">
+                    <i class="icon-support"></i>
+                    <span>Compra Seguras</span>
+                    <p>Tus compras son 100% protegidas</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-middle">
+            <div class="footer-section">
+                <img src="imagenes/LogoAgora.png" alt="Agora de Letras" class="logo" />
+                <p>Visita nuestras redes</p>
+                <br>
+                <div class="social-media">
+                    <a href="#" onclick="PFacebook()">
+                        <i class="fa-brands fa-facebook" style="color: #000000;"></i>
+                    </a>
+
+                    <a href="#" onclick="PInstagram()">
+                        <i class="fa-brands fa-instagram" style="color: #000000;"></i>
+                    </a>
+                    <a href="#" onclick="PYoutube()">
+                        <i class="fa-brands fa-youtube" style="color: #000000;"></i>
+                    </a>
+                    <a href="#" onclick="PTWITER()">
+                        <i class="fa-brands fa-x-twitter" style="color: #000000;"></i></a>
+
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Sobre Nosotros</h3>
+                <ul>
+                    <li><a href="#" onclick="CNosotros()">Sobre Nosotros</a></li>
+                    <li><a href="#" onclick="Confirmacion()">Contáctanos </a></li>                    
+                </ul>
+            </div>
+
+
+            <div class="footer-section newsletter">
+                <section class="contact-section">
+
+                    <form class="contact-form">
+                        <h2>Consultas y Sugerencias</h2>
+                        <p>Déjanos tus consultas o sugerencias y nos pondremos en contacto contigo.</p>
+                        <input type="text" placeholder="Nombres" required>
+                        <input type="text" placeholder="Apellidos" required>
+                        <input type="email" placeholder="E-mail" required>
+                        <input type="text" placeholder="Celular" required>
+                        <textarea placeholder="Mensaje" required></textarea>
+                        <button type="submit" class="submit-button" onclick="Sugerencia()">Enviar Mensaje</button>
+                    </form>
+                </section>
+                          
+            </div>
+        </div>
+        <div id="mediospago" class="footer-bottom">
+            <p>Ágora de Letras Librerías 2024. Todos los derechos reservados | ÁGORA SAC. RUC 20723189867</p>
+            <br>
+            <div class="payment-methods">
+
+                <img src="imagenes/Visa_Logo.png" alt="Visa" />
+                <img src="imagenes/Mastercard.png" alt="Mastercard" />
+                <img src="imagenes/AmericanExpress.png" alt="American Express" />
+                <img src="imagenes/Diners_Club.png" alt="Diners Club" />
+                <img src="imagenes/PagoEfectivo.png" alt="Pago Efectivo" />
+
+            </div>
+        </div>
+    </footer>
+</html>

@@ -1,0 +1,105 @@
+/* Fondo general de la ventana emergente */
+.ventanaEmergente {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Mostrar la ventana emergente */
+.ventanaEmergente.activo {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Contenedor del contenido */
+.ventanaEmergente-contenido {
+  background: #ffffff;
+  width: 80%;
+  max-width: 800px;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: aparecer 0.5s ease;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+  position: relative;
+}
+
+/* Animación para el contenedor */
+@keyframes aparecer {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Cabecera del anuncio */
+.ventanaEmergente-header {
+  background-color: #4caf50; /* Verde fresco y profesional */
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-bottom: 2px solid #388e3c; /* Un verde más oscuro para contraste */
+}
+
+/* Cuerpo del anuncio */
+.ventanaEmergente-body {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  background-color: #f9fbe7; /* Fondo cálido con un toque de verde claro */
+}
+
+/* Estilo actualizado de la imagen */
+.ventanaEmergente-imagen {
+  width: 100%; /* Ocupa el 100% del contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  border-radius: 10px;
+  max-height: 70vh; /* Limita la altura al 70% del alto de la ventana */
+  object-fit: cover; /* Ajusta la imagen para que se vea bien dentro del contenedor */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Agrega sombra a la imagen */
+}
+
+/* Pie del anuncio */
+.ventanaEmergente-footer {
+  text-align: right;
+  padding: 15px 20px;
+  background-color: #f1f1f1;
+  border-top: 1px solid #ddd;
+}
+
+/* Botón de cierre */
+.ventanaEmergente-botonCerrar {
+  position: absolute; /* Ubicación relativa al contenedor del anuncio */
+  top: 15px; /* Distancia desde la parte superior del anuncio */
+  right: 15px; /* Distancia desde el borde derecho del anuncio */
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #666666; /* Color gris neutro */
+  cursor: pointer;
+  transition: color 0.2s ease;
+  z-index: 10; /* Asegura que esté por encima del contenido */
+}
+
+.ventanaEmergente-botonCerrar:hover {
+  color: #e53935; /* Rojo suave al pasar el cursor */
+}

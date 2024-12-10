@@ -1,0 +1,68 @@
+body {
+    margin: 0; /* Elimina los márgenes del body */
+    
+}
+header {
+    background-color: #f4f4f4;
+    padding: 5px 5px;
+    text-align: center;
+    
+}
+.fondo-principal{
+    max-width: 100%;
+    margin: auto;
+}
+
+.fondo-agora {
+    max-width: 100%;
+    width: 2500px;
+    height: auto;
+    display: block;
+    background: rgba(0,0,0,0.0);
+    
+}
+
+
+.mi-carousel-container {
+    
+    max-width: 100%; /* Máximo ancho para pantallas grandes */
+    overflow: hidden;
+    position: relative;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+}
+
+.mi-carousel {
+    display: flex;
+    animation: slide 9s linear infinite;
+}
+
+.mi-carousel img {
+    width: 600px; /* La imagen ocupa el 100% del contenedor */
+    flex-shrink: 0;
+    height: 300px; /* Mantiene proporciones */
+}
+
+/* Animación para el bucle infinito */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Mueve la mitad del contenedor (6 imágenes) */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .carousel-container {
+        width: 90%; /* Reducimos el ancho para pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-container {
+        width: 100%; /* Ocupa el ancho completo */
+        border-radius: 0; /* Sin bordes redondeados en móviles */
+    }
+
+    .carousel img {
+        object-fit: cover; /* Ajusta las imágenes */
+    }
+}

@@ -1,0 +1,154 @@
+
+.contact-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 40px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+}
+
+/* Imagen de la sección */
+.contact-image {
+    flex: 1; /* Permite que la imagen ocupe un espacio proporcional */
+    max-width: 600px; /* Define un ancho máximo para la imagen */
+    text-align: center;
+}
+
+.contact-image img {
+    width: 100%; /* Ajusta la imagen al contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Formulario de contacto */
+.contact-form {
+    flex: 1; /* Permite que el formulario ocupe un espacio proporcional */
+    max-width: 500px;
+    width: 100%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+    color: #333;
+    text-align: center;
+}
+
+.contact-form p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+}
+
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.contact-form textarea {
+    resize: none;
+    height: 100px;
+}
+
+
+.checkboxes {
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.checkboxes label {
+    display: block;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.checkboxes input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+
+.checkboxes a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.checkboxes a:hover {
+    text-decoration: underline;
+}
+
+
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px; /* Espaciado con el botón de regreso */
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+
+
+.back-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #4caf50;
+    background-color: transparent;
+    border: 2px solid #4caf50;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.back-button:hover {
+    background-color: #4caf50;
+    color: white;
+}
+
+
+/* Adaptabilidad para pantallas pequeñas */
+@media (max-width: 768px) {
+    .contact-section {
+        flex-direction: column; /* Imagen y formulario apilados */
+        gap: 20px;
+    }
+
+    .contact-image {
+        max-width: 100%; /* Imagen ocupa todo el ancho disponible */
+    }
+
+    .contact-form {
+        max-width: 100%; /* El formulario también ocupa todo el ancho */
+    }
+}
