@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ágora de Letras | Venta de Libros</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="CSS/estilo.css">
+        <link href="CSS/estilocontacto.css" rel="stylesheet" />
+        <link href="CSS/estiloTabla.css" rel="stylesheet" />
+        <script src="JS/confirmacion.js" type="text/javascript"></script>
+        <link href="CSS/ventana.css" rel="stylesheet" type="text/css"/>
+        <link href="CSS/estilo-fondoprincipalagora.css" rel="stylesheet" type="text/css"/>
+        <script src="JS/descripcionLibro.js" type="text/javascript"></script>
+        <link href="CSS/descripcionLibro.css" rel="stylesheet" type="text/css"/>
+        <link href="CSS/barraBusqueda.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <!-- Contenido principal -->
+        <header>            
+            <div class="fondo-principal">
+                <img src="imagenes/fondoprincipal.jpeg" alt="Agora" class="fondo-agora"/>
+            </div>
+
+        </header>  
+        <header>
+            <div class="header-container">
+                <img src="imagenes/LogoAgora.png" alt="Agora de libros Logo" class="logo" />
+                <input type="text" placeholder="Buscar por título, autor o género" class="search-bar">
+                <button class="searchInput" type = "submit" onclick="filterBooks()">🔍</button>
+                <div id="book-list"></div>
+                <script src="busqueda.js" type="text/javascript"></script>
+                <div class="header-links">                    
+                    <a href="registrarse.html">Regístrate</a>
+                    <a href="carrito.html">Carrito</a>
+                </div>
+            </div>
+            <div class="book-list" id="bookList">
+                <!-- Los libros se renderizan dinámicamente aquí -->
+            </div>
+
+            <nav class="navbar">
+                <button class="nav-boton" onclick="toggleMenu()">Menú</button>
+                <div id="menu" class="menu oculto">
+                    <a href="#leidos">Los más leídos</a>
+                    <a href="#vendidos">Los más vendidos</a>
+                    <a href="#manga">Manga</a>
+                    <a href="#ficcion">Ficción</a>
+                    <a href="#terror">Terror</a>
+                    <a href="#pirateria">Pirateria</a>
+                    <a href="#clasicos">Listo de los Libros Clásicos</a>
+                    <a href="#mediospago">Medios de Pago</a>
+                </div>
+            </nav>
+            <script src="JS/menu_responsivo.js" type="text/javascript"></script>
+            <script src="registrarse.js" type="text/javascript"></script>
+            
+        </header>
+        <style>
+            .bcarousel {
+                position: relative;
+                width: 100%;
+                max-width: 2500px;
+                margin-left: 0.1px;
+                margin-right:0.1px;
+                overflow: hidden;
+            }
+            .bcarousel img {
+                display: none;
+                width: 100%;
+                height: auto;
+
+            }
+            .bcarousel img.active {
+                display: block;
+            }
+
+
+
+        </style>
+
+        <section class="fondo_banner">
+            <div class="bcarousel">
+                <img src="imagenes/banner/banner1.jpeg" class="active">
+                <img src="imagenes/banner/banner2.jpeg">
+                <img src="imagenes/banner/banner3.jpeg">
+            </div>
+        </section>
+
+        <script>
+                    // Asegurarse de que el DOM esté completamente cargado antes de ejecutar el script
+                    document.addEventListener('DOMContentLoaded', function () {
+                        let index = 0;
+                        const images = document.querySelectorAll('.bcarousel img');
+                        const totalImages = images.length;
+
+                        function showNextImage() {
+                            images[index].classList.remove('active');
+                            index = (index + 1) % totalImages;
+                            images[index].classList.add('active');
+                        }
+
+                        setInterval(showNextImage, 3000);
+                    });
+        </script>
+
+
+
+        <section id="leidos" class="bestsellers">
+            <div class="bestsellers-header">
+                <h2>🏆 LOS MÁS LEÍDOS</h2>
+                <a href="#leidos" class="btn-ver-todos">VER TODOS</a>
+            </div>
+            <div class="carousel" id="carousel1">
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <img src="imagenes/libro de bill.jpg" alt="LIBRO DE BILL" onclick="showBookDetails('Libro de Bill', 'Alex Hirsch', '2021', 'Una historia hilarante y conmovedora que explora el mundo surrealista y absurdo de Bill, un joven con un sentido del humor peculiar y una visión única de la vida.', 'imagenes/libro de bill.jpg')" />
+                        <h3>ALEX HIRSCH</h3>
+                        <p class="book-title">LIBRO DE BILL</p>
+                        <span class="price">S/ 79.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="imagenes/BLUE LOCK 20- YUSUKE NOMURA; MUNEYUKI KANESHIRO.png" alt="BLUE LOCK 20" onclick="showBookDetails('BLUE LOCK 20', 'Muneyuki Kaneshiro y Yusuke Nomura', '2023', 'Prepárate para un emocionante capítulo de este manga que redefine el fútbol como un deporte de estrategia y pasión. ¡Ideal para fanáticos del fútbol y los mangas intensos!', 'imagenes/BLUE LOCK 20- YUSUKE NOMURA; MUNEYUKI KANESHIRO.png')" />
+                        <h3>MUNEYUKI KANESHIRO Y YUSUKE NOMURA</h3>
+                        <p class="book-title">BLUE LOCK 20</p>
+                        <span class="price">S/ 64.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+                    <div class="carousel-item">
+                        <img src="imagenes/CAPERUCITA ROJA Y EL LOBO EN VERSO - ROALD DAHL.PNG" alt="CAPERUCITA ROJA Y EL LOBO EN VERSO" onclick="showBookDetails('Caperucita Roja y el Lobo en Verso', 'Roald Dahl', '1984', 'Una ingeniosa reinterpretación del cuento clásico con un toque único de humor y poesía que solo Roald Dahl puede ofrecer. ¡Perfecto para lectores de todas las edades!', 'imagenes/CAPERUCITA ROJA Y EL LOBO EN VERSO - ROALD DAHL.PNG')" />
+                        <h3>ROALD DAHL</h3>
+                        <p class="book-title">CAPERUCITA ROJA Y EL LOBO EN VERSO</p>
+                        <span class="price">S/ 59.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="imagenes/1984 - George Orwell.jpg" alt="1984" onclick="showBookDetails('1984', 'George Orwell', '1949', 'Una distopía inquietante que te sumergirá en un mundo controlado por la vigilancia total y la censura. Una obra maestra que te hará reflexionar sobre la libertad y el poder.', 'imagenes/1984 - George Orwell.jpg')" />
+                        <h3>GEORGE ORWELL</h3>
+                        <p class="book-title">1984</p>
+                        <span class="price">S/ 79.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+                    <div class="carousel-item">
+                        <img src="imagenes/DIARIO DE GREG 3 - ESTO ES EL COLMO - JEFF KINNEY.png" alt="DIARIO DE GREG 3 - ESTO ES EL COLMO" onclick="showBookDetails('Diario de Greg 3 - Esto es el Colmo', 'Jeff Kinney', '2010', 'Continúa la hilarante saga de Greg Heffley en esta entrega llena de situaciones cómicas y desastres escolares que te harán reír sin parar.', 'imagenes/DIARIO DE GREG 3 - ESTO ES EL COLMO - JEFF KINNEY.png')" />
+                        <h3>JEFF KINNEY</h3>
+                        <p class="book-title">DIARIO DE GREG 3 - ESTO ES EL COLMO</p>
+                        <span class="price">S/ 99.90</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+                    <div class="carousel-item">
+                        <img src="imagenes/Dune - Frank Herbert.jpg" alt="DUNE" onclick="showBookDetails('Dune', 'Frank Herbert', '1965', 'Explora Arrakis, el desierto más misterioso del universo, y sumérgete en una épica historia de política, religión y supervivencia. Un imprescindible de la ciencia ficción.', 'imagenes/Dune - Frank Herbert.jpg')" />
+                        <h3>FRANK HERBERT</h3>
+                        <p class="book-title">DUNE</p>
+                        <span class="price">S/ 39.90</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+                    <div class="carousel-item">
+                        <img src="imagenes/EL MISTERIO DE LAS CRIATURAS ALADAS (MITICAS 2) - LAUREN MAGAZINER.png" alt="EL MISTERIO DE LAS CRIATURAS ALADAS" onclick="showBookDetails('El Misterio de las Criaturas Aladas (Míticas 2)', 'Lauren Magaziner', '2020', 'Adéntrate en un mundo mágico lleno de criaturas míticas y resuelve misterios que desafían la lógica. ¡Una aventura para lectores curiosos y soñadores!', 'imagenes/EL MISTERIO DE LAS CRIATURAS ALADAS (MITICAS 2) - LAUREN MAGAZINER.png')" />
+                        <h3>LAUREN MAGAZINER</h3>
+                        <p class="book-title">EL MISTERIO DE LAS CRIATURAS ALADAS (MITICAS 2)</p>
+                        <span class="price">S/ 59.90</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+                    <div class="carousel-item">
+                        <img src="imagenes/El despertar del Leviatan - James S. A. Corey.jpg" alt="EL DESPERTAR DEL LEVIATÁN" onclick="showBookDetails('El Despertar del Leviatán', 'James S. A. Corey', '2011', 'Una impactante odisea en el espacio llena de conspiraciones, alianzas peligrosas y acción. Perfecto para los amantes de la ciencia ficción moderna.', 'imagenes/El despertar del Leviatan - James S. A. Corey.jpg')" />
+                        <h3>JAMES S. A. COREY</h3>
+                        <p class="book-title">EL DESPERTAR DEL LEVIATÁN</p>
+                        <span class="price">S/ 59.90</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+                </div>
+                <button class="prev" onclick="moveCarousel('carousel1', 'prev')">&#10094;</button>
+                <button class="next" onclick="moveCarousel('carousel1', 'next')">&#10095;</button>
+            </div>
+        </section>
+
+        <section id="vendidos" class="bestsellers">
+            <div class="bestsellers-header">
+                <h2>LOS MAS VENDIDOS</h2>
+                <a href="#vendidos" class="btn-ver-todos">VER TODOS</a>
+            </div>
+            <div class="carousel" id="carousel6">
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <img src="imagenes/TU ALMA RESPONDE.jpeg" alt="TU ALMA RESPONDE" onclick="showBookDetails('Tu Alma Responde', 'Rosa María Cifuentes', '2023', 'Descubre una obra conmovedora que explora las emociones profundas de quienes buscamos respuestas. ¡Una lectura imprescindible para los que buscan un cambio espiritual!', 'imagenes/TU ALMA RESPONDE.jpeg')" />
+                        <h3>ROSA MARÍA CIFUENTES</h3>
+                        <p class="book-title">TU ALMA RESPONDE</p>
+                        <span class="price">S/ 60.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+
+                    <div class="carousel-item">
+                        <img src="imagenes/ROMPER EL CIRCULO.jpeg" alt="ROMPER EL CIRCULO" onclick="showBookDetails('Romper el Círculo', 'Colleen Hoover', '2023', '¡Un thriller emocional que desafiará tus creencias sobre el amor y el destino! Perfecto para los amantes de las historias profundas y apasionadas.', 'imagenes/ROMPER EL CIRCULO.jpeg')" />
+                        <h3>COLLEEN HOOVER</h3>
+                        <p class="book-title">ROMPER EL CÍRCULO</p>
+                        <span class="price">S/ 89.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+
+                    <div class="carousel-item">
+                        <img src="imagenes/ELEVA TU JUEGO CULINARIO.jpeg" alt="ELEVA TU JUEGO CULINARIO" onclick="showBookDetails('Eleva Tu Juego Culinario', 'Giacomo Bocchio', '2023', 'Este libro es la puerta a nuevas experiencias culinarias. Lleva tu cocina al siguiente nivel con recetas innovadoras y deliciosas.', 'imagenes/ELEVA TU JUEGO CULINARIO.jpeg')" />
+                        <h3>GIACOMO BOCCHIO</h3>
+                        <p class="book-title">ELEVA TU JUEGO CULINARIO</p>
+                        <span class="price">S/ 79.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+
+                    <div class="carousel-item">
+                        <img src="imagenes/MÁS ALLA DEL AMOR 2.png" alt="MÁS ALLÁ DEL AMOR 2" onclick="showBookDetails('Más Allá del Amor 2', 'Fujimomo', '2023', 'La secuela de una de las historias más románticas que te hará creer en el amor verdadero. No te pierdas este viaje emocional.', 'imagenes/MÁS ALLA DEL AMOR 2.png')" />
+                        <h3>FUJIMOMO</h3>
+                        <p class="book-title">MÁS ALLÁ DEL AMOR 2</p>
+                        <span class="price">S/ 99.90</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+
+                    <div class="carousel-item">
+                        <img src="imagenes/BLUE LOCK 19.png" alt="BLUE LOCK 19" onclick="showBookDetails('Blue Lock 19', 'Muneyuki Kaneshiro y Yusuke Nomura', '2023', 'Si eres fanático del fútbol y de los mangas intensos, no puedes perderte este emocionante capítulo lleno de adrenalina y pasión por el deporte.', 'imagenes/BLUE LOCK 19.png')" />
+                        <h3>MUNEYUKI KANESHIRO Y YUSUKE NOMURA</h3>
+                        <p class="book-title">BLUE LOCK 19</p>
+                        <span class="price">S/ 39.90</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+
+                    <div class="carousel-item">
+                        <img src="imagenes/SPY X FAMILY 11.png" alt="SPY X FAMILY 11" onclick="showBookDetails('Spy X Family 11', 'Tatsuya Endo', '2023', 'La trama de espionaje y acción se mezcla con la ternura y el humor en esta divertida saga. ¡Perfecto para los fanáticos del espionaje y las familias poco convencionales!', 'imagenes/SPY X FAMILY 11.png')" />
+                        <h3>TATSUYA ENDO</h3>
+                        <p class="book-title">SPY X FAMILY 11</p>
+                        <span class="price">S/ 59.90</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+
+                </div>
+                <button class="prev" onclick="moveCarousel('carousel6', 'prev')">&#10094</button>
+                <button class="next" onclick="moveCarousel('carousel6', 'next')">&#10095;</button>
+            </div>
+        </section>
+        <section id="manga" class="bestsellers">
+            <div class="bestsellers-header">
+                <h2>MANGA</h2>
+                <a href="#manga" class="btn-ver-todos">VER TODOS</a>
+            </div>
+            <div class="carousel" id="carousel2">
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <img src="imagenes/GUNM BATTLE.png" alt="YUKITO KISHIRO" onclick="showBookDetails('GUNM BATTLE ANGEL ALITA #1', 'Yukito Kishiro', '1990', 'Un emocionante viaje en un futuro post-apocalíptico donde la lucha por la supervivencia es brutal. Ideal para los fanáticos de la ciencia ficción y las historias épicas de cibernética.', 'imagenes/GUNM BATTLE.png')"/>
+                        <h3>YUKITO KISHIRO</h3>
+                        <p class="book-title">GUNM BATTLE ANGEL ALITA #1</p>
+                        <span class="price">S/ 64.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+
+                    <div class="carousel-item">
+                        <img src="imagenes/BLUE LOCK 20- YUSUKE NOMURA; MUNEYUKI KANESHIRO.png" alt="MUNEYUKI KANESHIRO Y YUSUKE NOMURA" onclick="showBookDetails('BLUE LOCK 20', 'Muneyuki Kaneshiro y Yusuke Nomura', '2023', 'La apasionante saga de fútbol donde los jugadores luchan por su oportunidad de brillar, explorando el deseo y la competitividad al más alto nivel. Perfecto para los fans de los mangas deportivos.', 'imagenes/BLUE LOCK 20- YUSUKE NOMURA; MUNEYUKI KANESHIRO.png')"/>
+                        <h3>MUNEYUKI KANESHIRO Y YUSUKE NOMURA</h3>
+                        <p class="book-title">BLUE LOCK 20</p>
+                        <span class="price">S/ 59.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+
+                    <div class="carousel-item">
+                        <img src="imagenes/HOOKY TOMO 3 - MÍRIAM BONASTRE TUR.PNG" alt="MÍRIAM BONASTRE TUR" onclick="showBookDetails('HOOKY (TOMO 3)', 'Míriam Bonastre Tur', '2023', 'Un manga lleno de magia, aventuras y giros inesperados, donde los protagonistas deben enfrentarse a su destino en un mundo fantástico. Perfecto para quienes aman las historias de fantasía y magia.', 'imagenes/HOOKY TOMO 3 - MÍRIAM BONASTRE TUR.PNG')"/>
+                        <h3>MÍRIAM BONASTRE TUR</h3>
+                        <p class="book-title">HOOKY (TOMO 3)</p>
+                        <span class="price">S/ 79.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+
+                    <div class="carousel-item">
+                        <img src="imagenes/mas-alla-del-amor-4 portada.jpg" alt="FUJIMOMO" onclick="showBookDetails('MÁS ALLÁ DEL AMOR 4', 'Fujimomo', '2023', 'Una obra emocional y romántica que explora el amor, las dificultades y las decisiones de vida. Perfecto para los fanáticos de los mangas sentimentales y apasionados.', 'imagenes/mas-alla-del-amor-4 portada.jpg')"/>
+                        <h3>FUJIMOMO</h3>
+                        <p class="book-title">MÁS ALLÁ DEL AMOR 4</p>
+                        <span class="price">S/ 99.90</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+
+                    <div class="carousel-item">
+                        <img src="imagenes/BLUE LOCK 19.png" alt="MUNEYUKI KANESHIRO Y YUSUKE NOMURA" onclick="showBookDetails('BLUE LOCK 19', 'Muneyuki Kaneshiro y Yusuke Nomura', '2023', 'La emoción de la competencia y la lucha por la victoria siguen siendo el centro de este manga, donde los jugadores se enfrentan a nuevos desafíos. Ideal para los fanáticos de los deportes y el manga de acción.', 'imagenes/BLUE LOCK 19.png')"/>
+                        <h3>MUNEYUKI KANESHIRO Y YUSUKE NOMURA</h3>
+                        <p class="book-title">BLUE LOCK 19</p>
+                        <span class="price">S/ 39.90</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+
+                    <div class="carousel-item">
+                        <img src="imagenes/SPY X FAMILY 11.png" alt="TATSUYA ENDO" onclick="showBookDetails('SPY X FAMILY 11', 'Tatsuya Endo', '2023', 'La trama de espionaje y acción se mezcla con la ternura y el humor en esta divertida saga. ¡Perfecto para los fanáticos del espionaje y las familias poco convencionales!', 'imagenes/SPY X FAMILY 11.png')"/>
+                        <h3>TATSUYA ENDO</h3>
+                        <p class="book-title">SPY X FAMILY 11</p>
+                        <span class="price">S/ 59.90</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+
+                </div>
+                <button class="prev" onclick="moveCarousel('carousel2', 'prev')">&#10094</button>
+                <button class="next" onclick="moveCarousel('carousel2', 'next')">&#10095;</button>
+            </div>
+        </section>
+
+        <section id="ficcion" class="bestsellers">
+            <div class="bestsellers-header">
+                <h2>FICCIÓN</h2>
+                <a href="#ficcion" class="btn-ver-todos">VER TODOS</a>
+            </div>
+            <div class="carousel" id="carousel3">
+
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <img src="imagenes/El despertar del Leviatan - James S. A. Corey.jpg" alt="JAMES S. A." onclick="showBookDetails('El despertar del Leviatán', 'James S. A. Corey', '2011', 'Un inicio épico para la saga de ciencia ficción que mezcla intrigas políticas y aventuras espaciales. Perfecto para los amantes del género sci-fi.', 'imagenes/El despertar del Leviatan - James S. A. Corey.jpg')"/>
+                        <h3>JAMES S. A.</h3>
+                        <p class="book-title">EL DESPERTAR DEL LEVIATÁN</p>
+                        <span class="price">S/ 64.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+
+                    <div class="carousel-item">
+                        <img src="imagenes/1984 - George Orwell.jpg" alt="GEORGE ORWELL" onclick="showBookDetails('1984', 'George Orwell', '1949', 'Una novela distópica que explora el control social, la vigilancia y la libertad. Ideal para quienes buscan reflexionar sobre la sociedad.', 'imagenes/1984 - George Orwell.jpg')"/>
+                        <h3>GEORGE ORWELL</h3>
+                        <p class="book-title">1984</p>
+                        <span class="price">S/ 59.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+
+                    <div class="carousel-item">
+                        <img src="imagenes/Dune - Frank Herbert.jpg" alt="FRANK HERBERT" onclick="showBookDetails('Dune', 'Frank Herbert', '1965', 'Un clásico de la ciencia ficción que mezcla política, religión y ecología en un vasto universo futurista. Un imprescindible para los fanáticos del género.', 'imagenes/Dune - Frank Herbert.jpg')"/>
+                        <h3>FRANK HERBERT</h3>
+                        <p class="book-title">DUNE</p>
+                        <span class="price">S/ 79.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+                    <div class="carousel-item">
+                        <img src="imagenes/libro de bill.jpg" alt="LIBRO DE BILL" onclick="showBookDetails('Libro de Bill', 'Alex Hirsch', '2016', 'El libro oficial de Gravity Falls, lleno de secretos, misterios y diversión para los fanáticos de la serie.', 'imagenes/libro de bill.jpg')"/>
+                        <h3>ALEX HIRSCH</h3>
+                        <p class="book-title">LIBRO DE BILL</p>
+                        <span class="price">S/ 79.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+                    <div class="carousel-item">
+                        <img src="imagenes/my hero academi.jpg" alt="MY HERO ACADEMY" onclick="showBookDetails('My Hero Academy', 'Kohei Horikoshi', '2014', 'Una historia de superhéroes donde jóvenes estudiantes entrenan para convertirse en los héroes del mañana. Perfecto para los amantes del shōnen.', 'imagenes/my hero academi.jpg')"/>
+                        <h3>KOHEI HORIKOSHI</h3>
+                        <p class="book-title">MY HERO ACADEMY</p>
+                        <span class="price">S/ 59.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+                    <div class="carousel-item">
+                        <img src="imagenes/LA CONSPIRACION DEL CAMALEON.jpeg" alt="LA CONSPIRACION DEL CAMALEON" onclick="showBookDetails('La conspiración del camaleón', 'Nick Spencer', '2021', 'Un intrigante cómic lleno de giros inesperados y conspiraciones que atrapan desde el inicio.', 'imagenes/LA CONSPIRACION DEL CAMALEON.jpeg')"/>
+                        <h3>NICK SPENCER</h3>
+                        <p class="book-title">LA CONSPIRACION DEL CAMALEON</p>
+                        <span class="price">S/ 59.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+                    <div class="carousel-item">
+                        <img src="imagenes/BERSERK.jpeg" alt="BERSEK" onclick="showBookDetails('Berserk', 'Kentaro Miura', '1989', 'Un manga épico de fantasía oscura que sigue la historia de Guts, un mercenario con un pasado trágico y una lucha implacable por sobrevivir.', 'imagenes/BERSERK.jpeg')"/>
+                        <h3>KENTARO MIURA</h3>
+                        <p class="book-title">BERSERK</p>
+                        <span class="price">S/ 59.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+                </div>
+                <button class="prev" onclick="moveCarousel('carousel3', 'prev')">&#10094</button>
+                <button class="next" onclick="moveCarousel('carousel3', 'next')">&#10095;</button>
+            </div>
+        </section>
+        <section id="terror" class="bestsellers">
+            <div class="bestsellers-header">
+                <h2>TERROR</h2>
+                <a href="#terror" class="btn-ver-todos">VER TODOS</a>
+            </div>
+            <div class="carousel" id="carousel4">
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <img src="imagenes/HELLSTAR REMINA.png" alt="JUNJI ITO" onclick="showBookDetails('Hellstar Remina', 'Junji Ito', '2005', 'Un manga de horror cósmico que explora el terror del fin del mundo y los oscuros aspectos de la humanidad.', 'imagenes/HELLSTAR REMINA.png')"/>
+                        <h3>JUNJI ITO</h3>
+                        <p class="book-title">HELLSTAR REMINA</p>
+                        <span class="price">S/ 64.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+
+                    <div class="carousel-item">
+                        <img src="imagenes/RELATOS TERRORRIFICOS 3.png" alt="JUNJI ITO" onclick="showBookDetails('Relatos Terroríficos 3', 'Junji Ito', '2011', 'La tercera entrega de historias inquietantes que solo Junji Ito puede crear. Un festín de terror gráfico y psicológico.', 'imagenes/RELATOS TERRORRIFICOS 3.png')"/>
+                        <h3>JUNJI ITO</h3>
+                        <p class="book-title">RELATOS TERRORÍFICOS 3</p>
+                        <span class="price">S/ 59.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+
+                    <div class="carousel-item">
+                        <img src="imagenes/MUERTO ENFERMO DE AMOR.png" alt="JUNJI ITO" onclick="showBookDetails('Muerto Enfermo de Amor', 'Junji Ito', '2020', 'Una inquietante colección de historias que entrelazan romance y horror de la mano del maestro Junji Ito.', 'imagenes/MUERTO ENFERMO DE AMOR.png')"/>
+                        <h3>JUNJI ITO</h3>
+                        <p class="book-title">MUERTO ENFERMO DE AMOR</p>
+                        <span class="price">S/ 79.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+
+                </div>
+                <button class="prev" onclick="moveCarousel('carousel4', 'prev')">&#10094</button>
+                <button class="next" onclick="moveCarousel('carousel4', 'next')">&#10095;</button>
+            </div>
+            <div class="mi-carousel-container">
+                <div class="mi-carousel">
+                    <img src="imagenes/1.png" alt="Imagen 1">
+                    <img src="imagenes/2.png" alt="Imagen 2">
+                    <img src="imagenes/3.png" alt="Imagen 3">
+                    <!-- Imágenes duplicadas para el bucle -->
+                    <img src="imagenes/1.png" alt="Imagen 1 duplicada">
+                    <img src="imagenes/2.png" alt="Imagen 2 duplicada">
+                    <img src="imagenes/3.png" alt="Imagen 3 duplicada">
+                </div>
+            </div>
+        </section>
+
+        <section id="pirateria" class="bestsellers">
+            <div class="bestsellers-header">
+                <h2>PIRATERIA</h2>
+                <a href="#pirateria" class="btn-ver-todos">VER TODOS</a>
+            </div>
+            <div class="carousel" id="carousel5">
+
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <img src="imagenes/la isla del tesoro.jpeg" alt="LA ISLA DEL TESORO" onclick="showBookDetails('La Isla del Tesoro', 'Robert Louis Stevenson', '1883', 'Una aventura clásica de piratas, tesoros escondidos y luchas por la supervivencia en una isla remota.', 'imagenes/la isla del tesoro.jpeg')"/>
+                        <h3>ROBERT LOUIS STEVENSON</h3>
+                        <p class="book-title">LA ISLA DEL TESORO</p>
+                        <span class="price">S/ 94.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+
+                    <div class="carousel-item">
+                        <img src="imagenes/historia de la pirateria.jpg" alt="HISTORIA DE LA PIRATERIA" onclick="showBookDetails('Historia de la Piratería', 'Philip Gosse', '1851', 'Una obra detallada que recorre la historia de la piratería, explorando sus orígenes y leyendas más conocidas.', 'imagenes/historia de la pirateria.jpg')"/>
+                        <h3>PHILIP GOSSE</h3>
+                        <p class="book-title">HISTORIA DE LA PIRATERÍA</p>
+                        <span class="price">S/ 79.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+
+                    <div class="carousel-item">
+                        <img src="imagenes/el capitan blood.jpeg" alt="EL CAPITAN BLOOD" onclick="showBookDetails('El Capitán Blood', 'Rafael Sabatini', '1922', 'Un clásico de aventuras que narra las peripecias de un hombre injustamente esclavizado que se convierte en pirata.', 'imagenes/el capitan blood.jpeg')"/>
+                        <h3>RAFAEL SABATINI</h3>
+                        <p class="book-title">EL CAPITÁN BLOOD</p>
+                        <span class="price">S/ 89.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+
+                    <div class="carousel-item">
+                        <img src="imagenes/el corsario negro.jpg" alt="EL CORSARIO NEGRO" onclick="showBookDetails('El Corsario Negro', 'Emilio Salgari', '1898', 'La épica historia de un pirata misterioso que lucha por la justicia en los mares del Caribe.', 'imagenes/el corsario negro.jpg')"/>
+                        <h3>EMILIO SALGARI</h3>
+                        <p class="book-title">EL CORSARIO NEGRO</p>
+                        <span class="price">S/ 89.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+
+                    <div class="carousel-item">
+                        <img src="imagenes/las mujeres piratas.jpeg" alt="LAS MUJERES PIRATAS" onclick="showBookDetails('Las Mujeres Piratas', 'Henry Musnik', '2005', 'Una fascinante mirada a las historias de mujeres que se convirtieron en figuras legendarias de la piratería.', 'imagenes/las mujeres piratas.jpeg')"/>
+                        <h3>HENRY MUSNIK</h3>
+                        <p class="book-title">LAS MUJERES PIRATAS</p>
+                        <span class="price">S/ 59.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+
+                    <div class="carousel-item">
+                        <img src="imagenes/vengeance of the pirate queen.jpeg" alt="VENGEANCE OF THE PIRATE QUEEN" onclick="showBookDetails('Vengeance of the Pirate Queen', 'Tricia Levensellers', '2020', 'Un relato cautivador sobre una pirata que busca venganza mientras lidia con traiciones y secretos ocultos.', 'imagenes/vengeance of the pirate queen.jpeg')"/>
+                        <h3>TRICIA LEVENSELLERS</h3>
+                        <p class="book-title">VENGEANCE OF THE PIRATE QUEEN</p>
+                        <span class="price">S/ 59.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+
+                    <div class="carousel-item">
+                        <img src="imagenes/piratas.jpeg" alt="PIRATAS" onclick="showBookDetails('Piratas', 'Peter Lebr', '2012', 'Una novela que narra las aventuras y los desafíos de un grupo de piratas en busca de gloria y tesoros perdidos.', 'imagenes/piratas.jpeg')"/>
+                        <h3>PETER LEBR</h3>
+                        <p class="book-title">PIRATAS</p>
+                        <span class="price">S/ 69.00</span>
+                        <a href="carrito.html">
+                            <div class="comprar">AÑADIR AL CARRITO</div>
+                        </a>                    </div>
+
+                </div>
+                <button class="prev" onclick="moveCarousel('carousel5', 'prev')">&#10094</button>
+                <button class="next" onclick="moveCarousel('carousel5', 'next')">&#10095;</button>
+            </div>
+        </section>
+        <hr>
+        <br>
+        <section id="clasicos">
+            <h2>Lista de Libros clasicos</h2>
+            <table>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Género</th>
+                    <th>Año de Publicación</th>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="img_clasicos/ElQuijote.jpg" alt="El Quijote">
+                    </td>
+                    <td>El Quijote</td>
+                    <td>Miguel de Cervantes</td>
+                    <td>Novela</td>
+                    <td>1605</td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="img_clasicos/100añosdesoledad.jpg" alt="Cien Años de Soledad">
+                    </td>
+                    <td>Cien Años de Soledad</td>
+                    <td>Gabriel García Márquez</td>
+                    <td>Realismo Mágico</td>
+                    <td>1967</td>
+                </tr>
+                <tr>
+                    <td><img src="img_clasicos/Imagen de WhatsApp 2024-09-09 a las 21.14.57_e9b0fd6b.jpg" alt="1984"></td>
+                    <td>1984</td>
+                    <td>George Orwell</td>
+                    <td>Distopía</td>
+                    <td>1949</td>
+                </tr>
+                <tr>
+                    <td><img src="img_clasicos/Imagen de WhatsApp 2024-09-09 a las 21.15.53_49059fd7.jpg"
+                             alt="Orgullo y Prejuicio"></td>
+                    <td>Orgullo y Prejuicio</td>
+                    <td>Jane Austen</td>
+                    <td>Romance</td>
+                    <td>1813</td>
+                </tr>
+            </table>
+
+
+
+            <!-- Modal -->
+            <div id="bookModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 id="modal-title"></h2>
+                        <button class="close-btn" onclick="closeModal()">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-body-content">
+                            <img id="modal-image" class="modal-image" alt="Imagen del libro">
+                            <div class="modal-text">
+                                <p><strong>Autor:</strong> <span id="modal-author"></span></p>
+                                <p><strong>Año:</strong> <span id="modal-year"></span></p>
+                                <p><strong>Descripción:</strong> <span id="modal-description"></span></p>
+                            </div>
+                        </div>
+                        <!-- Botón para ir al carrito -->
+                        <button id="go-to-cart" onclick="goToCart()">AÑADIR AL CARRITO</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ventanaEmergente" class="ventanaEmergente">
+                <div class="ventanaEmergente-contenido">
+                    <!-- El botón debe estar dentro de ventanaEmergente-contenido -->
+                    <button id="cerrarVentanaEmergente" class="ventanaEmergente-botonCerrar">×</button>
+                    <div class="ventanaEmergente-header">
+                        <h2>¡Anuncio Especial!</h2>
+                    </div>
+                    <div class="ventanaEmergente-body">
+                        <img src="imagenes/banner/bannerventana.jpg" alt="Banner" class="ventanaEmergente-imagen">
+                    </div>
+                </div>
+            </div>
+
+
+            <script src="JS/ventana.js" type="text/javascript"></script>
+
+
+    </body>    
+    <footer>
+        <div class="footer-top">
+            <div class="footer-service">
+                <div class="service-item">
+                    <i class="icon-delivery"></i>
+                    <span>Recojo en tienda</span>
+                    <p>Ubica tu tienda más cercana</p>
+                </div>
+                <div class="service-item">
+                    <i class="icon-secure"></i>
+                    <span>Atención al cliente</span>
+                    <p>Consulta con nuestro equipo de atención al cliente</p>
+                </div>
+                <div class="service-item">
+                    <i class="icon-support"></i>
+                    <span>Compra Seguras</span>
+                    <p>Tus compras son 100% protegidas</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-middle">
+            <div class="footer-section">
+                <img src="imagenes/LogoAgora.png" alt="Agora de Letras" class="logo" />
+                <p>Visita nuestras redes</p>
+                <br>
+                <div class="social-media">
+                    <a href="#" onclick="PFacebook()">
+                        <i class="fa-brands fa-facebook" style="color: #000000;"></i>
+                    </a>
+
+                    <a href="#" onclick="PInstagram()">
+                        <i class="fa-brands fa-instagram" style="color: #000000;"></i>
+                    </a>
+                    <a href="#" onclick="PYoutube()">
+                        <i class="fa-brands fa-youtube" style="color: #000000;"></i>
+                    </a>
+                    <a href="#" onclick="PTWITER()">
+                        <i class="fa-brands fa-x-twitter" style="color: #000000;"></i></a>
+
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Sobre Nosotros</h3>
+                <ul>
+                    <li><a href="#" onclick="CNosotros()">Sobre Nosotros</a></li>
+                    <li><a href="#" onclick="Confirmacion()">Contáctanos </a></li>                 
+                </ul>
+            </div>
+
+
+            <div class="footer-section newsletter">
+                <section class="contact-section">
+
+                    <form class="contact-form">
+                        <h2>Consultas y Sugerencias</h2>
+                        <p>Déjanos tus consultas o sugerencias y nos pondremos en contacto contigo.</p>
+                        <input type="text" placeholder="Nombres" required>
+                        <input type="text" placeholder="Apellidos" required>
+                        <input type="email" placeholder="E-mail" required>
+                        <input type="text" placeholder="Celular" required>
+                        <textarea placeholder="Mensaje" required></textarea>
+                        <button type="submit" class="submit-button" onclick="Sugerencia()">Enviar Mensaje</button>
+                    </form>
+                </section>
+                          
+            </div>
+        </div>
+        <div id="mediospago" class="footer-bottom">
+            <p>Ágora de Letras Librerías 2024. Todos los derechos reservados | ÁGORA SAC. RUC 20723189867</p>
+            <br>
+            <div class="payment-methods">
+
+                <img src="imagenes/Visa_Logo.png" alt="Visa" />
+                <img src="imagenes/Mastercard.png" alt="Mastercard" />
+                <img src="imagenes/AmericanExpress.png" alt="American Express" />
+                <img src="imagenes/Diners_Club.png" alt="Diners Club" />
+                <img src="imagenes/PagoEfectivo.png" alt="Pago Efectivo" />
+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Obtener los elementos del modal y el botón
+        const modal = document.getElementById("popupModal");
+        const exploreBtn = document.getElementById("exploreBtn");
+        const closeBtn = document.querySelector(".close");
+
+        // Función para mostrar el modal (opcional, si lo necesitas para abrirlo manualmente)
+        function showModal() {
+            modal.style.display = "block";
+        }
+
+        // Cerrar el modal cuando el usuario hace clic en el botón de cerrar (X)
+        closeBtn.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // Cuando el usuario hace clic en el botón "Explorar Libros"
+        exploreBtn.onclick = function () {
+            // Redirigir al índice y cerrar el modal
+            window.location.href = "#index";  // Redirige a la sección con id="index"
+            modal.style.display = "none"; // Cerrar el modal
+        }
+
+        // Si el usuario hace clic fuera del modal, también lo cierra
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function moveCarousel(carouselId, direction) {
+            const carousel = document.getElementById(carouselId);
+            const inner = carousel.querySelector('.carousel-inner');
+            const items = carousel.querySelectorAll('.carousel-item');
+            const itemWidth = items[0].offsetWidth;
+            const currentPosition = parseInt(inner.style.transform.replace('translateX(', '').replace('px)', '')) || 0;
+
+            if (direction === 'next') {
+                if (Math.abs(currentPosition) < (items.length - 1) * itemWidth) {
+                    inner.style.transform = `translateX(${currentPosition - itemWidth}px)`;
+                }
+            } else if (direction === 'prev') {
+                if (currentPosition < 0) {
+                    inner.style.transform = `translateX(${currentPosition + itemWidth}px)`;
+                }
+            }
+        }
+    </script>
+
+
+</html>
+
+

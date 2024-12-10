@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+header {
+  background-color: #fd2200;
+  color: #1d2d5c;
+  text-align: center;
+  padding: 20px 0;
+}
+h1 {
+  font-size: 2rem;
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  flex: 1 1 calc(100% - 40px); /* Ajuste para pantallas pequeñas */
+  max-width: 300px;
+  min-width: 250px;
+  font-size: 1.1rem;
+}
+.card:hover {
+  transform: translateY(-10px);
+}
+.card img {
+  width: 100%;
+  height: auto;
+  max-width: 100%; /* Evitar desbordamiento */
+}
+.card h3 {
+  padding: 15px;
+  background-color: #299772;
+  color: white;
+  text-align: center;
+}
+.card p {
+  padding: 15px;
+  text-align: justify;
+}
+/* Media query para tablets */
+@media (max-width: 768px) {
+  .gallery {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px; /* Reducir padding en pantallas pequeñas */
+  }
+  .card p {
+    font-size: 2vw;
+  }
+}
+/* Media query para móviles */
+@media (max-width: 480px) {
+  .card h3 {
+    font-size: 1.5rem;
+  }
+  .card p {
+    font-size: 3vw;
+  }
+  .gallery,
+  .container {
+    gap: 10px; /* Reducir espacio entre tarjetas */
+  }
+}
